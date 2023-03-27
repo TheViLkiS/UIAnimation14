@@ -18,15 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqK-tD-vwj">
-                                <rect key="frame" x="84" y="510" width="201" height="200"/>
+                                <rect key="frame" x="96" y="326" width="201" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9WQ-eY-IFu">
+                                <rect key="frame" x="14" y="211" width="365" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mcD-8h-Ddp"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didSlideAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="GSy-T6-icJ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9WQ-eY-IFu" secondAttribute="trailing" constant="16" id="Gme-TY-dml"/>
+                            <constraint firstItem="9WQ-eY-IFu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OlW-hf-wwR"/>
+                            <constraint firstItem="9WQ-eY-IFu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mlp-xQ-vjR"/>
+                            <constraint firstItem="9WQ-eY-IFu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="ukn-09-TXR"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="didSlide" destination="9WQ-eY-IFu" id="Tes-7x-tBD"/>
                         <outlet property="viewForAnimation" destination="uqK-tD-vwj" id="gOp-6e-9Jp"/>
                     </connections>
                 </viewController>
