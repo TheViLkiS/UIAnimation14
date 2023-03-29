@@ -16,6 +16,8 @@ enum AnimationState {
 class ViewController: UIViewController {
     
     var state: AnimationState = .close // статус анимации
+    
+    
 
     @IBOutlet weak var viewForAnimation: UIView!
     
@@ -125,7 +127,7 @@ class ViewController: UIViewController {
         
         let final = (view.bounds.height - viewForAnimation.bounds.height) / 2
         let translation = panGesture.translation(in: self.view)
-        
+        var currentYTranslation = -translation.y
         
         switch panGesture.state {
             
@@ -135,7 +137,12 @@ class ViewController: UIViewController {
             activateAnimation()
             animator.pauseAnimation()
         case .changed: // изменился
-            animator.fractionComplete = translation.y / final
+            
+            if state == .open {
+                currentYTranslation *= -1
+            }
+            
+            animator.fractionComplete = currentYTranslation / final
         case .ended: //завершился
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
 //        case .cancelled: //отменен жест(пришел звонок)
